@@ -7,7 +7,7 @@ const port = 3000;
 
 // CORS configuration to allow requests from specific origins
 const corsOptions = {
-  origin: ['http://localhost:3000'], // Add allowed origins here
+  origin: '*', // Add allowed origins here
   methods: ['GET', 'POST'],         // Allowed HTTP methods
   allowedHeaders: ['Content-Type'], // Allowed headers
 };
