@@ -7,28 +7,21 @@ The base URL for the API is:
 ```json
 https://courses-api-qnvw.onrender.com/courses
 ```
-Endpoints
-GET /courses
-Retrieve a list of all courses.
+# Courses API
 
-URL: /courses
-Method: GET
-Response:
-Returns an array of course objects, each containing:
-id: Unique identifier for the course
-name: Name of the course
-description: Brief description of the course
-duration: Duration of the course
-level: Course difficulty level
-category: Course category
-image: URL for the course image
-instructor: Object containing instructor details (name, bio, avatar)
-price: Price of the course
-language: Course language
-enrollment_count: Number of enrolled students
-ratings: Average course ratings
-Example Response:
+This API serves a collection of courses for educational purposes. You can retrieve all courses or a specific course by its ID.
 
+## Endpoints
+
+### 1. Get All Courses
+
+**URL:** `/courses`
+
+**Method:** `GET`
+
+**Description:** Retrieves a list of all available courses.
+
+**Response:**
 ```json
 [
   {
@@ -38,20 +31,57 @@ Example Response:
     "duration": "4 heures",
     "level": "Débutant",
     "category": "Développement Web",
-    "image": "https://example.com/javascript-course.jpg",
+    "image": "https://th.bing.com/th/id/OIP.zGtB9WyPaKOzVKsxzI_NlAHaEo?rs=1&pid=ImgDetMain",
+    "link": "https://some-link.com",
     "instructor": {
       "id": 105,
       "name": "Sophie Durand",
       "bio": "Développeuse JavaScript et formatrice.",
-      "avatar": "https://example.com/sophie-avatar.jpg"
+      "avatar": "https://some-avatar-link.com"
     },
     "price": 24.99,
     "language": "Spanish",
     "enrollment_count": 1800,
     "ratings": 4.6
-  }
+  },
+  ...
 ]
 ```
+### 2. Get Course by ID
+
+**URL:** `/courses/:id`
+
+**Method:** `GET`
+
+**Description:** Retrieves a specific course by its ID.
+
+**URL Params:**
+- `id` (required) — The ID of the course you want to retrieve.
+
+**Response:**
+```json
+{
+  "id": 1,
+  "name": "Apprendre JavaScript",
+  "description": "Un cours complet sur les bases du JavaScript pour les débutants.",
+  "duration": "4 heures",
+  "level": "Débutant",
+  "category": "Développement Web",
+  "image": "https://th.bing.com/th/id/OIP.zGtB9WyPaKOzVKsxzI_NlAHaEo?rs=1&pid=ImgDetMain",
+  "link": "https://some-link.com",
+  "instructor": {
+    "id": 105,
+    "name": "Sophie Durand",
+    "bio": "Développeuse JavaScript et formatrice.",
+    "avatar": "https://some-avatar-link.com"
+  },
+  "price": 24.99,
+  "language": "Spanish",
+  "enrollment_count": 1800,
+  "ratings": 4.6
+}
+```
+
 ## **Features**
 1. Fetch details about courses and instructors.
 2. Supports different categories and languages.
